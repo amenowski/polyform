@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Linux-Libertine-Display-Capitals";
+  src: url("Linux-Libertine-Display-Capitals.ttf.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Linux-Libertine-Display-Capitals";
+}
