@@ -3,8 +3,8 @@ import Button from "./ui/Button";
 
 export default function Hero() {
   return (
-    <div>
-      <div className="h-screen">
+    <div className="">
+      <div className="h-[50rem]">
         <div className="absolute top-0 -z-50 h-[900px] w-full">
           <img src={HeroBg} className="h-[900px] w-full object-cover" />
           <div className="absolute inset-0 mx-auto flex max-w-[1440px] flex-col items-start justify-center gap-4 px-4 text-white">
