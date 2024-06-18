@@ -2,9 +2,21 @@ import { Link, useLocation } from "react-router-dom";
 import LogoWhite from "../../assets/images/logo-white.webp";
 import LogoBlack from "../../assets/images/logo-black.webp";
 
-export default function Logo() {
+type LogoProps = {
+  variant?: "white" | "black";
+};
+
+export default function Logo({ variant = "white" }: LogoProps) {
   const currentPage = useLocation().pathname;
   const isHomePage = currentPage === "/home";
+
+  if (variant === "black") {
+    return (
+      <Link to="home">
+        <img src={LogoBlack} alt="Logo" />
+      </Link>
+    );
+  }
 
   return (
     <Link to="home">
