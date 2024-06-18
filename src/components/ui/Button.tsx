@@ -11,7 +11,7 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
 };
 
 const buttonVariants = cva(
-  "bg-white px-6 py-3 rounded-sm transition-all duration-300 hover:bg-hoverBackground text-black",
+  "bg-white z-50 px-8 py-3 rounded-sm transition-all duration-300 hover:bg-hoverBackground text-black",
   {
     variants: {
       variant: {
