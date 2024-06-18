@@ -5,7 +5,7 @@ import Container from "./ui/Container";
 
 export default function Features() {
   return (
-    <section className="bg-featuresBackground w-full py-12">
+    <section className="bg-featuresBackground w-full py-20">
       <Container className="grid gap-x-4 gap-y-10 py-10 md:grid-cols-2 lg:grid-cols-3">
         <div>
           <div className="h-96 w-full overflow-hidden">
