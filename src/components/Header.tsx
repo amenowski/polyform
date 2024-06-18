@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative w-full border-b py-4 text-white">
+      <header className="relative z-50 w-full border-b py-4 text-white">
         <Container className="flex items-center justify-between">
           <div className="flex items-center gap-12">
             <Logo />
