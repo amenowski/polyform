@@ -69,7 +69,6 @@ export default function Home() {
       <Essentials />
       <StickyScroll content={content} />
       <BestProducts />
-      <Footer />
     </>
   );
 }
