@@ -7,11 +7,12 @@ import Signup from "./pages/Signup";
 import AppLayout from "./pages/AppLayout";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ProductDetails from "./pages/ProductDetails";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: Infinity,
+      staleTime: 60,
     },
   },
 });
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="product/:name" element={<ProductDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>
