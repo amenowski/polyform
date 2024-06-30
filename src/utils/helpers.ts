@@ -5,3 +5,6 @@ export const formatCurrency = (value: number) =>
 export const formatNameForURL = (name: string) => {
   return name.replace(/\s+/g, "-");
 };
+export const revertFormattedName = (formattedName: string) => {
+  return formattedName.replace(/-/g, " ");
+};
