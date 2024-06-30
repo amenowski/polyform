@@ -1,17 +1,13 @@
 import { Link } from "react-router-dom";
 import { type Product } from "../../lib/types";
 import { formatCurrency, formatNameForURL } from "../../utils/helpers";
-import ProductSkeleton from "./ProductSkeleton";
 
 type ProductProps = {
   product: Product;
-  isLoading: boolean;
 };
 
-export default function Product({ product, isLoading }: ProductProps) {
+export default function Product({ product }: ProductProps) {
   const { name, images, price } = product;
-
-  console.log(isLoading);
 
   return (
     <div className="group/product relative py-4">

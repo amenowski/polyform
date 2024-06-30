@@ -5,7 +5,7 @@ import Logo from "./ui/Logo";
 
 import { CiUser, CiSearch, CiBag1, CiMenuBurger } from "react-icons/ci";
 import MobileNavigation from "./MobileNavigation";
-import { useNavigationContext } from "../hooks/NavigationContext";
+import { useNavigationContext } from "../contexts/NavigationContext";
 
 export default function Header() {
   const { isNavigationOpen, setIsNavigationOpen } = useNavigationContext();

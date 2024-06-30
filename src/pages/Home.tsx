@@ -10,7 +10,6 @@ import Sticky1 from "../assets/images/sticky-1.webp";
 import Sticky2 from "../assets/images/sticky-2.webp";
 import Sticky3 from "../assets/images/sticky-3.webp";
 import BestProducts from "../components/BestProducts";
-import Footer from "../components/Footer";
 
 const content = [
   {

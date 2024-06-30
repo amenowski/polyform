@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary";
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
   to?: string;
   disabled?: boolean;
@@ -31,6 +32,7 @@ export default function Button({
   disabled,
   variant,
   to,
+  onClick,
 }: ButtonProps) {
   if (to) {
     return (
@@ -41,7 +43,11 @@ export default function Button({
   }
 
   return (
-    <button disabled={disabled} className={cn(buttonVariants({ variant }))}>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={cn(buttonVariants({ variant }))}
+    >
       {children}
     </button>
   );

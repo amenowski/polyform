@@ -1,6 +1,4 @@
-import React from "react";
 import Logo from "./ui/Logo";
-import Button from "./ui/Button";
 
 export default function Footer() {
   return (
