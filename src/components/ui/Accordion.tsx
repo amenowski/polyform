@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { motion } from "framer-motion";
 
 type AccordionProps = {
   children: React.ReactNode;

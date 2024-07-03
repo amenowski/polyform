@@ -6,19 +6,27 @@ import Logo from "./ui/Logo";
 import { CiUser, CiSearch, CiBag1, CiMenuBurger } from "react-icons/ci";
 import MobileNavigation from "./MobileNavigation";
 import { useNavigationContext } from "../contexts/NavigationContext";
+import { useCartPreviewContext } from "../contexts/CartPreviewContext";
+import { getTotalPrice } from "../stores/cartSlice";
+import { useSelector } from "react-redux";
+import { formatCurrency } from "../utils/helpers";
+import CartPreview from "./CartPreview";
 
 export default function Header() {
-  const { isNavigationOpen, setIsNavigationOpen } = useNavigationContext();
+  const { setIsNavigationOpen } = useNavigationContext();
+  const { setIsCartPreviewOpen } = useCartPreviewContext();
+  const totalPrice = useSelector(getTotalPrice);
 
   const currentPage = useLocation().pathname;
   const isHomePage = currentPage === "/home";
 
   function handleOpenNavigation() {
     setIsNavigationOpen(true);
-    console.log(isNavigationOpen);
   }
 
-  function handleOpenCart() {}
+  function handleOpenCart() {
+    setIsCartPreviewOpen(true);
+  }
 
   function handleOpenSearch() {}
 
@@ -50,6 +58,7 @@ export default function Header() {
               }`}
             />
             <div
+              onClick={handleOpenCart}
               className={`flex cursor-pointer items-center gap-1 p-2 ${
                 isHomePage
                   ? "hover:bg-white hover:text-black"
@@ -57,7 +66,7 @@ export default function Header() {
               }`}
             >
               <CiBag1 size={30} />
-              <span>$232.20</span>
+              <span>{formatCurrency(totalPrice)}</span>
             </div>
             <CiMenuBurger
               onClick={handleOpenNavigation}
@@ -70,6 +79,7 @@ export default function Header() {
         </Container>
       </header>
       <MobileNavigation />
+      <CartPreview />
     </>
   );
 }
