@@ -1,14 +1,21 @@
-import { useParams } from "react-router-dom";
-import { useProduct } from "../hooks/useProduct";
-import { formatCurrency, revertFormattedName } from "../utils/helpers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import ProductGallery from "../components/ProductGallery";
+import Accordion from "../components/ui/Accordion";
+import Button from "../components/ui/Button";
+import Container from "../components/ui/Container";
+import Loading from "../components/ui/Loading";
+import { useCartPreviewContext } from "../contexts/CartPreviewContext";
+import { useProduct } from "../hooks/useProduct";
 import { Product } from "../lib/types";
 import { addToCart, getCurrentProductQuantity } from "../stores/cartSlice";
-import ProductGallery from "../components/ProductGallery";
-import Button from "../components/ui/Button";
-import Accordion from "../components/ui/Accordion";
-import Container from "../components/ui/Container";
+import {
+  formatCurrency,
+  revertFormattedName,
+  scrollTop,
+} from "../utils/helpers";
 
 export default function ProductDetails() {
   const { name } = useParams();
@@ -21,8 +28,13 @@ export default function ProductDetails() {
   const currentQuantity = useSelector(
     getCurrentProductQuantity(product?.at(0)?.id),
   );
+  const { setIsCartPreviewOpen } = useCartPreviewContext();
 
-  if (isLoading) return <div>Loading...</div>;
+  useEffect(() => {
+    scrollTop();
+  }, []);
+
+  if (isLoading) return <Loading />;
 
   console.log(product[0]);
 
@@ -53,10 +65,12 @@ export default function ProductDetails() {
       category,
     };
 
+    setIsCartPreviewOpen(true);
     dispatch(addToCart(newProduct));
   };
 
   const isInCart = currentQuantity > 0;
+
   return (
     <Container>
       <div className="grid min-h-96 grid-cols-1 gap-8 py-8 sm:grid-cols-[1fr_0.6fr] lg:py-16">
