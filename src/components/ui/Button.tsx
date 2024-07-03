@@ -1,10 +1,11 @@
 import { cva } from "class-variance-authority";
 import { ReactNode } from "react";
-import { cn } from "../../utils/cn";
 import { Link } from "react-router-dom";
 
+import { cn } from "../../utils/cn";
+
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "third";
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
   to?: string;
@@ -12,13 +13,14 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
 };
 
 const buttonVariants = cva(
-  "bg-white z-50 px-8 py-3 rounded-sm transition-all duration-300 hover:bg-hoverBackground text-black",
+  "bg-white z-50 px-8 py-3 rounded-sm transition-all duration-300 text-black",
   {
     variants: {
       variant: {
-        primary: " bg-white hover:bg-hoverBackground  hover:text-white",
+        primary: " bg-white border hover:bg-essentialBackground2 border-black",
         secondary:
-          " bg-hoverBackground hover:bg-white text-white hover:text-hoverBackground",
+          " bg-hoverBackground border hover:bg-white text-white hover:text-hoverBackground",
+        third: " border hover:border-black",
       },
     },
     defaultVariants: {
