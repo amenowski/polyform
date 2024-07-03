@@ -8,3 +8,6 @@ export const formatNameForURL = (name: string) => {
 export const revertFormattedName = (formattedName: string) => {
   return formattedName.replace(/-/g, " ");
 };
+export const scrollTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
