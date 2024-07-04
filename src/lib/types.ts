@@ -9,3 +9,16 @@ export type Product = {
   quantity?: number;
   totalPrice?: number;
 };
+
+export type LoginProps = {
+  email: string;
+  password: string;
+};
+
+export type SignupProps = {
+  name: string;
+  email: string;
+  password: string;
+  lastName: string;
+  passwordConfirm?: string;
+};
