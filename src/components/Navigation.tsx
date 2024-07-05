@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
 import { GoChevronDown } from "react-icons/go";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navigation() {
   const currentPage = useLocation().pathname;
@@ -9,29 +9,24 @@ export default function Navigation() {
     {
       title: "Categories",
       items: [
-        { name: "Sofas", link: "shop/sofas" },
-        { name: "Beds", link: "shop/beds" },
-        { name: "Armchairs", link: "shop/armchairs" },
-        { name: "Poufs", link: "shop/poufs" },
+        { name: "Sofas", link: "shop?categories=sofas" },
+        { name: "Beds", link: "shop?categories=beds" },
+        { name: "Armchairs", link: "shop?categories=armchairs" },
+        { name: "Poufs", link: "shop?categories=poufs" },
       ],
     },
     {
       title: "Shop by Room",
       items: [
-        { name: "Living Room", link: "shop/living-room" },
-        { name: "Bedroom", link: "shop/bedroom" },
-        { name: "Dining Room", link: "shop/dining-room" },
-        { name: "Office", link: "shop/office" },
+        { name: "Living Room", link: "shop?categories=livingroom" },
+        { name: "Bedroom", link: "shop?categories=bedroom" },
+        { name: "Dining Room", link: "shop?categories=diningroom" },
+        { name: "Office", link: "shop?categories=office" },
       ],
     },
     {
       title: "Featured",
-      items: [
-        { name: "New Arrivals", link: "shop/new-arrivals" },
-        { name: "Best Sellers", link: "shop/best-sellers" },
-        { name: "On Sale", link: "shop/on-sale" },
-        { name: "Clearance", link: "shop/clearance" },
-      ],
+      items: [{ name: "On Sale", link: "shop?isDiscount=yes" }],
     },
     {
       title: "Shop by Collection",
