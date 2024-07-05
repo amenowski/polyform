@@ -22,3 +22,16 @@ export type SignupProps = {
   lastName: string;
   passwordConfirm?: string;
 };
+
+export type SortBy = {
+  options: {
+    value: "name-asc" | "name-desc" | "price-asc" | "price-desc";
+    label: string;
+  }[];
+};
+export type Filter = {
+  options: {
+    value: string;
+    label: string;
+  }[];
+};
