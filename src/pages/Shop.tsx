@@ -1,6 +1,6 @@
-import ShopOperations from "../components/ShopOperations";
 import ShopProducts from "../components/ShopProducts";
 import Container from "../components/ui/Container";
+import ShopOperations from "../components/ui/ShopOperations";
 
 export default function Shop() {
   return (
