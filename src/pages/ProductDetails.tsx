@@ -9,7 +9,7 @@ import Container from "../components/ui/Container";
 import Loading from "../components/ui/Loading";
 import { useCartPreviewContext } from "../contexts/CartPreviewContext";
 import { useProduct } from "../hooks/useProduct";
-import { Product } from "../lib/types";
+import { ProductT } from "../lib/types";
 import { addToCart, getCurrentProductQuantity } from "../stores/cartSlice";
 import {
   formatCurrency,
@@ -53,7 +53,7 @@ export default function ProductDetails() {
 
     if (Number(quantity) <= 0) return;
 
-    const newProduct: Product = {
+    const newProduct: ProductT = {
       id,
       name: productName,
       price,
