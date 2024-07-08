@@ -11,6 +11,7 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
   to?: string;
   disabled?: boolean;
+  className?: string;
 };
 
 const buttonVariants = cva(
@@ -37,10 +38,14 @@ export default function Button({
   to,
   onClick,
   type,
+  className,
 }: ButtonProps) {
   if (to) {
     return (
-      <Link to={to} className={cn(buttonVariants({ variant }))}>
+      <Link
+        to={!disabled ? to : "/shop"}
+        className={`${disabled ? "cursor-not-allowed" : ""} ${className} ${cn(buttonVariants({ variant }))}`}
+      >
         {children}
       </Link>
     );
@@ -51,7 +56,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={cn(buttonVariants({ variant }))}
+      className={`${disabled ? "cursor-not-allowed" : ""} ${className} ${cn(buttonVariants({ variant }))}`}
     >
       {children}
     </button>
