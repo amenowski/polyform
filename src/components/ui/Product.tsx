@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
 
-import { Product as ProductT } from "../../lib/types";
+import { ProductT } from "../../lib/types";
 import { formatCurrency, formatNameForURL } from "../../utils/helpers";
 
-type ProductProps = {
-  product: ProductT;
-};
-
-export default function Product({ product }: ProductProps) {
+export default function Product({ product }: { product: ProductT }) {
   const { name, images, price } = product;
 
   return (
