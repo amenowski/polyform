@@ -15,25 +15,9 @@ import Container from "./ui/Container";
 import Logo from "./ui/Logo";
 
 export default function Header() {
-  const { setIsNavigationOpen } = useNavigationContext();
-  const { setIsCartPreviewOpen } = useCartPreviewContext();
-  const totalPrice = useSelector(getTotalPrice);
+  const isHomePage = useLocation().pathname === "/home";
 
-  const currentPage = useLocation().pathname;
-  const isHomePage = currentPage === "/home";
-
-  const { user, isAuthenticated } = useUser();
-  const { logout } = useLogout();
-
-  function handleOpenNavigation() {
-    setIsNavigationOpen(true);
-  }
-
-  function handleOpenCart() {
-    setIsCartPreviewOpen(true);
-  }
-
-  function handleOpenSearch() {}
+  const { isAuthenticated } = useUser();
 
   return (
     <>
@@ -43,80 +27,118 @@ export default function Header() {
             <Logo />
             <Navigation />
           </div>
+
           <div className="relative flex items-center gap-2">
             {isAuthenticated ? (
-              <div className="group relative">
-                <CiUser
-                  className={`cursor-pointer p-2 ${
-                    isHomePage
-                      ? "hover:bg-white hover:text-black"
-                      : "text-black hover:bg-black hover:text-white"
-                  }`}
-                  size={45}
-                />
-                <div className="absolute right-0 top-10 hidden w-60 bg-white py-6 text-black group-hover:block">
-                  <div className="mb-4 px-6">
-                    <h3 className="font-bold">{`${user?.user_metadata.name} ${user?.user_metadata.lastName}`}</h3>
-                  </div>
-                  <div className="flex flex-col gap-2 text-sm text-gray-500">
-                    <Link
-                      className="px-6 py-2 hover:bg-essentialBackground2"
-                      to="account"
-                    >
-                      Account
-                    </Link>
-                    <span
-                      onClick={() => logout()}
-                      className="cursor-pointer px-6 py-2 hover:bg-essentialBackground2"
-                    >
-                      Log out
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <UserMenu isHomePage={isHomePage} />
             ) : (
-              <Link to="login">
-                <CiUser
-                  className={`cursor-pointer p-2 ${
-                    isHomePage
-                      ? "hover:bg-white hover:text-black"
-                      : "text-black hover:bg-black hover:text-white"
-                  }`}
-                  size={45}
-                />
-              </Link>
+              <GuestMenu isHomePage={isHomePage} />
             )}
-            <CiSearch
-              size={45}
-              className={`cursor-pointer p-2 ${
-                isHomePage
-                  ? "text-white hover:bg-white hover:text-black"
-                  : "text-black hover:bg-black hover:text-white"
-              }`}
-            />
-            <div
-              onClick={handleOpenCart}
-              className={`flex cursor-pointer items-center gap-1 p-2 ${
-                isHomePage
-                  ? "hover:bg-white hover:text-black"
-                  : "text-black hover:bg-black hover:text-white"
-              }`}
-            >
-              <CiBag1 size={30} />
-              <span>{formatCurrency(totalPrice)}</span>
-            </div>
-            <CiMenuBurger
-              onClick={handleOpenNavigation}
-              className={`block cursor-pointer md:hidden ${
-                isHomePage ? "text-white" : "text-black"
-              }`}
-              size={30}
-            />
+            <HeaderIcons isHomePage={isHomePage} />
           </div>
         </Container>
       </header>
       <MobileNavigation />
       <CartPreview />
     </>
+  );
+}
+
+function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
+  const { setIsNavigationOpen } = useNavigationContext();
+  const { setIsCartPreviewOpen } = useCartPreviewContext();
+
+  const totalPrice = useSelector(getTotalPrice);
+
+  function handleOpenNavigation() {
+    setIsNavigationOpen(true);
+  }
+
+  function handleOpenCart() {
+    setIsCartPreviewOpen(true);
+  }
+
+  return (
+    <>
+      <CiSearch
+        size={45}
+        className={`cursor-pointer p-2 ${
+          isHomePage
+            ? "text-white hover:bg-white hover:text-black"
+            : "text-black hover:bg-black hover:text-white"
+        }`}
+      />
+
+      <div
+        onClick={handleOpenCart}
+        className={`flex cursor-pointer items-center gap-1 p-2 ${
+          isHomePage
+            ? "hover:bg-white hover:text-black"
+            : "text-black hover:bg-black hover:text-white"
+        }`}
+      >
+        <CiBag1 size={30} />
+        <span>{formatCurrency(totalPrice)}</span>
+      </div>
+      <CiMenuBurger
+        onClick={handleOpenNavigation}
+        className={`block cursor-pointer md:hidden ${
+          isHomePage ? "text-white" : "text-black"
+        }`}
+        size={30}
+      />
+    </>
+  );
+}
+
+function UserMenu({ isHomePage }: { isHomePage: boolean }) {
+  const { user } = useUser();
+  const { logout } = useLogout();
+
+  return (
+    <div className="group relative">
+      <CiUser
+        className={`cursor-pointer p-2 ${
+          isHomePage
+            ? "hover:bg-white hover:text-black"
+            : "text-black hover:bg-black hover:text-white"
+        }`}
+        size={45}
+      />
+      <div className="absolute right-0 top-10 hidden w-60 bg-white py-6 text-black group-hover:block">
+        <div className="mb-4 px-6">
+          <h3 className="font-bold">{`${user?.user_metadata.name} ${user?.user_metadata.lastName}`}</h3>
+        </div>
+        <div className="flex flex-col gap-2 text-sm text-gray-500">
+          <Link
+            className="px-6 py-2 hover:bg-essentialBackground2"
+            to="account"
+          >
+            Account
+          </Link>
+          <span
+            onClick={() => logout()}
+            className="cursor-pointer px-6 py-2 hover:bg-essentialBackground2"
+          >
+            Log out
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GuestMenu({ isHomePage }: { isHomePage: boolean }) {
+  return (
+    <Link to="login">
+      <CiUser
+        className={`cursor-pointer p-2 ${
+          isHomePage
+            ? "hover:bg-white hover:text-black"
+            : "text-black hover:bg-black hover:text-white"
+        }`}
+        size={45}
+      />
+    </Link>
   );
 }
