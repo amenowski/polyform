@@ -1,18 +1,15 @@
 import { Link } from "react-router-dom";
+
+import { ProductT } from "../lib/types";
 import {
   formatCurrency,
   formatNameForURL,
   revertFormattedName,
 } from "../utils/helpers";
-import UpdateProductQuantity from "./ui/UpdateProductQuantity";
 import RemoveProduct from "./ui/RemoveProduct";
-import { Product } from "../lib/types";
+import UpdateProductQuantity from "./ui/UpdateProductQuantity";
 
-type CartTableItemProps = {
-  product: Product;
-};
-
-function CartTableItem({ product }: CartTableItemProps) {
+function CartTableItem({ product }: { product: ProductT }) {
   const { name, price, totalPrice, id, images } = product;
 
   return (

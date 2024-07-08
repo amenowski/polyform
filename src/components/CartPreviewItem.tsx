@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom";
+
+import { ProductT } from "../lib/types";
 import {
   formatCurrency,
   formatNameForURL,
   revertFormattedName,
 } from "../utils/helpers";
 import RemoveProduct from "./ui/RemoveProduct";
-import { Product } from "../lib/types";
-import UpdateQuantity from "./ui/UpdateProductQuantity";
 
-type CartPreviewProductProps = {
-  product: Product;
-};
-
-function CartPreviewItem({ product }: CartPreviewProductProps) {
+function CartPreviewItem({ product }: { product: ProductT }) {
   const { images, price, name, quantity, id } = product;
 
   return (

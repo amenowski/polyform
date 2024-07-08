@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { SortBy as SortByT } from "../../lib/types";
+import { SortByT } from "../../lib/types";
 import Select from "./Select";
 
 function SortBy({ options }: SortByT) {

@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
-import { Filter as FilterT } from "../../lib/types";
+import { FilterT } from "../../lib/types";
 import Select from "./Select";
 
 function Filter({ options }: FilterT) {

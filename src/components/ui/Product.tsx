@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { type Product } from "../../lib/types";
+
+import { Product as ProductT } from "../../lib/types";
 import { formatCurrency, formatNameForURL } from "../../utils/helpers";
 
 type ProductProps = {
-  product: Product;
+  product: ProductT;
 };
 
 export default function Product({ product }: ProductProps) {

@@ -1,5 +1,5 @@
 import { useProducts } from "../hooks/useProducts";
-import { Product as ProductT } from "../lib/types";
+import { ProductT } from "../lib/types";
 import Loading from "./ui/Loading";
 import Pagination from "./ui/Pagination";
 import Product from "./ui/Product";

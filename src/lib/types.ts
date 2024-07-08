@@ -1,4 +1,4 @@
-export type Product = {
+export type ProductT = {
   id: number;
   name: string;
   price: number;
@@ -23,13 +23,13 @@ export type SignupProps = {
   passwordConfirm?: string;
 };
 
-export type SortBy = {
+export type SortByT = {
   options: {
     value: "name-asc" | "name-desc" | "price-asc" | "price-desc";
     label: string;
   }[];
 };
-export type Filter = {
+export type FilterT = {
   options: {
     value: string;
     label: string;
