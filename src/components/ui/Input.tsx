@@ -1,35 +1,16 @@
-import React from "react";
+import React, { ComponentPropsWithRef } from "react";
 
-type InputProps = {
-  type: "text" | "number" | "email" | "password";
-  value?: string;
-  placeholder: string;
-  disabled?: boolean;
-  id?: string;
+type InputProps = ComponentPropsWithRef<"input"> & {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 };
 
 function Input(
-  {
-    type,
-    value,
-    placeholder,
-    disabled,
-    onChange,
-    id,
-    className,
-    ...rest
-  }: InputProps,
+  { onChange, className, ...rest }: InputProps,
   ref: React.Ref<HTMLInputElement>,
 ) {
   return (
     <input
-      id={id}
-      type={type}
-      value={value}
-      placeholder={placeholder}
-      disabled={disabled}
       onChange={onChange}
       ref={ref}
       {...rest}

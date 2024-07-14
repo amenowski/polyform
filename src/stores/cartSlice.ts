@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Product } from "../lib/types";
+
+import { ProductT } from "../lib/types";
 
 type ProductState = {
-  cart: Array<Product>;
+  cart: Array<ProductT>;
 };
 
 const initialState: ProductState = {
@@ -13,11 +14,13 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Product>) => {
+    addToCart: (state, action: PayloadAction<ProductT>) => {
       state.cart.push(action.payload);
     },
     deleteFromCart: (state, action: PayloadAction<number>) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+      state.cart = state.cart.filter(
+        (item: ProductT) => item.id !== action.payload,
+      );
     },
     incQuantity: (state, action: PayloadAction<number>) => {
       const item = state.cart.find((item) => item.id === action.payload);
@@ -42,7 +45,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const getCart = (state: { cart: ProductState }): Array<Product> =>
+export const getCart = (state: { cart: ProductState }): Array<ProductT> =>
   state.cart.cart;
 
 export const getTotalPrice = (state: { cart: ProductState }): number =>

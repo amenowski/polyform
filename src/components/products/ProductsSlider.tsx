@@ -4,9 +4,9 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { ProductT } from "../lib/types";
-import Product from "./ui/Product";
-import ProductSkeleton from "./ui/ProductSkeleton";
+import { ProductT } from "../../lib/types";
+import Product from "./ProductItem";
+import ProductSkeleton from "./ProductSkeleton";
 
 type ProductsSliderProps = {
   products: ProductT[];

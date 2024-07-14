@@ -4,12 +4,12 @@ import { createPortal } from "react-dom";
 import { IoMdClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 
-import { useCartPreviewContext } from "../contexts/CartPreviewContext";
-import { getCart, getTotalPrice } from "../stores/cartSlice";
-import { formatCurrency } from "../utils/helpers";
+import { useCartPreviewContext } from "../../contexts/CartPreviewContext";
+import { getCart, getTotalPrice } from "../../stores/cartSlice";
+import { formatCurrency } from "../../utils/helpers";
+import Button from "../ui/Button";
 import CartPreviewItem from "./CartPreviewItem";
-import Button from "./ui/Button";
-import EmptyCart from "./ui/EmptyCart";
+import EmptyCart from "./EmptyCart";
 
 export default function CartPreview() {
   const { isCartPreviewOpen, setIsCartPreviewOpen } = useCartPreviewContext();

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ProductT } from "../../lib/types";
 import { formatCurrency, formatNameForURL } from "../../utils/helpers";
 
-export default function Product({ product }: { product: ProductT }) {
+export default function ProductItem({ product }: { product: ProductT }) {
   const { name, images, price } = product;
 
   return (

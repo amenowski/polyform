@@ -1,6 +1,6 @@
+import Container from "../components/layout/Container";
 import LoginForm from "../components/LoginForm";
 import Button from "../components/ui/Button";
-import Container from "../components/ui/Container";
 
 export default function Login() {
   return (

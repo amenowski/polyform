@@ -1,18 +1,22 @@
+import { AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { CiBag1, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
-import { useCartPreviewContext } from "../contexts/CartPreviewContext";
-import { useNavigationContext } from "../contexts/NavigationContext";
-import { useLogout } from "../hooks/useLogout";
-import { useUser } from "../hooks/useUser";
-import { getTotalPrice } from "../stores/cartSlice";
-import { formatCurrency } from "../utils/helpers";
-import CartPreview from "./CartPreview";
-import MobileNavigation from "./MobileNavigation";
-import Navigation from "./Navigation";
-import Container from "./ui/Container";
-import Logo from "./ui/Logo";
+import { useCartPreviewContext } from "../../contexts/CartPreviewContext";
+import { useNavigationContext } from "../../contexts/NavigationContext";
+import { useLogout } from "../../hooks/useLogout";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { useUser } from "../../hooks/useUser";
+import { getTotalPrice } from "../../stores/cartSlice";
+import { formatCurrency } from "../../utils/helpers";
+import CartPreview from "../cart/CartPreview";
+import MobileNavigation from "../MobileNavigation";
+import Navigation from "../Navigation";
+import SearchPreview from "../SearchPreview";
+import Logo from "../ui/Logo";
+import Container from "./Container";
 
 export default function Header() {
   const isHomePage = useLocation().pathname === "/home";
@@ -45,10 +49,16 @@ export default function Header() {
 }
 
 function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
+  const [isSearchbarPreviewOpen, setIsSearchbarPreviewOpen] = useState(false);
   const { setIsNavigationOpen } = useNavigationContext();
   const { setIsCartPreviewOpen } = useCartPreviewContext();
-
   const totalPrice = useSelector(getTotalPrice);
+  const ref = useRef<HTMLDivElement>(null);
+  useOnClickOutside(ref, () => setIsSearchbarPreviewOpen(false));
+
+  function handleToggleSearchbarPreview() {
+    setIsSearchbarPreviewOpen((isOpen) => !isOpen);
+  }
 
   function handleOpenNavigation() {
     setIsNavigationOpen(true);
@@ -61,6 +71,7 @@ function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
   return (
     <>
       <CiSearch
+        onClick={handleToggleSearchbarPreview}
         size={45}
         className={`cursor-pointer p-2 ${
           isHomePage
@@ -68,7 +79,9 @@ function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
             : "text-black hover:bg-black hover:text-white"
         }`}
       />
-
+      <AnimatePresence>
+        {isSearchbarPreviewOpen && <SearchPreview ref={ref} />}
+      </AnimatePresence>
       <div
         onClick={handleOpenCart}
         className={`flex cursor-pointer items-center gap-1 p-2 ${

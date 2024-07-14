@@ -45,7 +45,6 @@ export default function Dropdown() {
             </span>
           ))}
         </div>
-        <Dropdown />
         <div className="grid grid-cols-4">
           {dropdownCategories.map((category, index) => (
             <ul key={index} className="flex flex-col gap-2 py-4">

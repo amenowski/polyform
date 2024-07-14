@@ -1,11 +1,11 @@
-import Feature1 from "../assets/images/feature1.webp";
-import Feature2 from "../assets/images/feature2.webp";
-import Feature3 from "../assets/images/feature3.webp";
-import Container from "./ui/Container";
+import Feature1 from "../../assets/images/feature1.webp";
+import Feature2 from "../../assets/images/feature2.webp";
+import Feature3 from "../../assets/images/feature3.webp";
+import Container from "./Container";
 
 export default function Features() {
   return (
-    <section className="bg-featuresBackground w-full py-20">
+    <section className="w-full bg-featuresBackground py-20">
       <Container className="grid gap-x-4 gap-y-10 py-10 md:grid-cols-2 lg:grid-cols-3">
         <div>
           <div className="h-96 w-full overflow-hidden">

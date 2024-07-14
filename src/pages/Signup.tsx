@@ -1,5 +1,5 @@
+import Container from "../components/layout/Container";
 import SignupForm from "../components/SignupForm";
-import Container from "../components/ui/Container";
 
 export default function Signup() {
   return (

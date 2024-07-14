@@ -1,15 +1,15 @@
-import { IoLeafOutline } from "react-icons/io5";
-import Essentials from "../components/Essentials";
-import Features from "../components/Features";
-import Hero from "../components/Hero";
-import { StickyScroll } from "../components/StickyScroll";
 import { CiHeart } from "react-icons/ci";
+import { IoLeafOutline } from "react-icons/io5";
 import { LiaCottonBureau } from "react-icons/lia";
 
 import Sticky1 from "../assets/images/sticky-1.webp";
 import Sticky2 from "../assets/images/sticky-2.webp";
 import Sticky3 from "../assets/images/sticky-3.webp";
-import BestProducts from "../components/BestProducts";
+import Essentials from "../components/layout/Essentials";
+import Features from "../components/layout/Features";
+import Hero from "../components/layout/Hero";
+import { StickyScroll } from "../components/layout/StickyScroll";
+import BestProducts from "../components/products/BestProducts";
 
 const content = [
   {

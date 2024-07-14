@@ -1,6 +1,6 @@
-import { useBestProducts } from "../hooks/useBestProducts";
-import ProductsSlider from "./ProductsSlider";
-import Container from "./ui/Container";
+import { useBestProducts } from "../../hooks/useBestProducts";
+import Container from "../layout/Container";
+import ProductsSlider from "../products/ProductsSlider";
 
 export default function BestProducts() {
   const { bestProducts, isLoading } = useBestProducts();

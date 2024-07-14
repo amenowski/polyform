@@ -1,6 +1,6 @@
-import BestProducts from "../components/BestProducts";
-import CartTable from "../components/CartTable";
-import Container from "../components/ui/Container";
+import CartTable from "../components/cart/CartTable";
+import Container from "../components/layout/Container";
+import BestProducts from "../components/products/BestProducts";
 
 export default function Cart() {
   return (

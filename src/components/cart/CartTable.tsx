@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-import { getCart, getTotalPrice } from "../stores/cartSlice";
-import { formatCurrency } from "../utils/helpers";
+import { getCart, getTotalPrice } from "../../stores/cartSlice";
+import { formatCurrency } from "../../utils/helpers";
+import Button from "../ui/Button";
 import CartTableItem from "./CartTableItem";
-import Button from "./ui/Button";
-import EmptyCart from "./ui/EmptyCart";
+import EmptyCart from "./EmptyCart";
 
 function CartTable() {
   const cart = useSelector(getCart);

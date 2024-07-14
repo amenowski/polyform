@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import { ProductT } from "../lib/types";
+import { ProductT } from "../../lib/types";
 import {
   formatCurrency,
   formatNameForURL,
   revertFormattedName,
-} from "../utils/helpers";
-import RemoveProduct from "./ui/RemoveProduct";
-import UpdateProductQuantity from "./ui/UpdateProductQuantity";
+} from "../../utils/helpers";
+import RemoveProduct from "../products/RemoveProduct";
+import UpdateProductQuantity from "../products/UpdateProductQuantity";
 
 function CartTableItem({ product }: { product: ProductT }) {
   const { name, price, totalPrice, id, images } = product;

@@ -1,10 +1,10 @@
 import { useProducts } from "../hooks/useProducts";
 import { ProductT } from "../lib/types";
+import Product from "./products/ProductItem";
 import Loading from "./ui/Loading";
 import Pagination from "./ui/Pagination";
-import Product from "./ui/Product";
 
-function ShopProducts() {
+function Products() {
   const { products, isLoading, count } = useProducts();
 
   if (isLoading) return <Loading />;
@@ -28,4 +28,4 @@ function ShopProducts() {
   );
 }
 
-export default ShopProducts;
+export default Products;

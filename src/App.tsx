@@ -8,7 +8,7 @@ import AppLayout from "./pages/AppLayout";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import ProductDetails from "./pages/ProductDetails";
+import Product from "./pages/Product";
 import Shop from "./pages/Shop";
 import Signup from "./pages/Signup";
 
@@ -33,7 +33,7 @@ export default function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
-            <Route path="product/:name" element={<ProductDetails />} />
+            <Route path="product/:name" element={<Product />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import ProductGallery from "../components/ProductGallery";
+import Container from "../components/layout/Container";
+import ProductGallery from "../components/products/ProductGallery";
 import Accordion from "../components/ui/Accordion";
 import Button from "../components/ui/Button";
-import Container from "../components/ui/Container";
 import Loading from "../components/ui/Loading";
 import { useCartPreviewContext } from "../contexts/CartPreviewContext";
 import { useProduct } from "../hooks/useProduct";
@@ -29,6 +29,8 @@ export default function ProductDetails() {
     getCurrentProductQuantity(product?.at(0)?.id),
   );
   const { setIsCartPreviewOpen } = useCartPreviewContext();
+
+  const isInCart = currentQuantity > 0;
 
   useEffect(() => {
     scrollTop();
@@ -68,8 +70,6 @@ export default function ProductDetails() {
     setIsCartPreviewOpen(true);
     dispatch(addToCart(newProduct));
   };
-
-  const isInCart = currentQuantity > 0;
 
   return (
     <Container>

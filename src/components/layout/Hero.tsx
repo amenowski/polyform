@@ -1,5 +1,5 @@
-import HeroBg from "../assets/images/hp1.webp";
-import Button from "./ui/Button";
+import HeroBg from "../../assets/images/hp1.webp";
+import Button from "../ui/Button";
 
 export default function Hero() {
   return (

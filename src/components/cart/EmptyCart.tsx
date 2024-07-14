@@ -1,5 +1,5 @@
 import { useUser } from "../../hooks/useUser";
-import Button from "./Button";
+import Button from "../ui/Button";
 
 function EmptyCart() {
   const { isAuthenticated } = useUser();
