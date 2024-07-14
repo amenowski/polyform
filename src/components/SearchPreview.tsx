@@ -20,11 +20,12 @@ const SearchPreview = forwardRef<HTMLDivElement>((props, ref) => {
       animate={{ y: 0 }}
       exit={{ y: "-100%" }}
       transition={{ ease: "easeOut", duration: "0.3" }}
-      className="absolute top-0 z-50 h-[20rem] w-full bg-white"
+      className="absolute top-0 z-[60] h-[10rem] w-full bg-white"
       ref={ref}
     >
       <Container>
         <Searchbar query={query} onChange={handleOnChange} />
+        <p className="my-4">Press enter to search</p>
       </Container>
     </motion.div>,
     document.body,

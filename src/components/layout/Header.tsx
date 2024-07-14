@@ -14,6 +14,7 @@ import { formatCurrency } from "../../utils/helpers";
 import CartPreview from "../cart/CartPreview";
 import MobileNavigation from "../MobileNavigation";
 import Navigation from "../Navigation";
+import Overlay from "../Overlay";
 import SearchPreview from "../SearchPreview";
 import Logo from "../ui/Logo";
 import Container from "./Container";
@@ -50,8 +51,8 @@ export default function Header() {
 
 function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
   const [isSearchbarPreviewOpen, setIsSearchbarPreviewOpen] = useState(false);
-  const { setIsNavigationOpen } = useNavigationContext();
-  const { setIsCartPreviewOpen } = useCartPreviewContext();
+  const { isNavigationOpen, setIsNavigationOpen } = useNavigationContext();
+  const { isCartPreviewOpen, setIsCartPreviewOpen } = useCartPreviewContext();
   const totalPrice = useSelector(getTotalPrice);
   const ref = useRef<HTMLDivElement>(null);
   useOnClickOutside(ref, () => setIsSearchbarPreviewOpen(false));
@@ -100,6 +101,10 @@ function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
         }`}
         size={30}
       />
+
+      {isSearchbarPreviewOpen || isNavigationOpen || isCartPreviewOpen ? (
+        <Overlay />
+      ) : null}
     </>
   );
 }

@@ -40,7 +40,7 @@ export default function CartPreview() {
       variants={variants}
       animate={isCartPreviewOpen ? "open" : "closed"}
       transition={{ ease: "easeIn", duration: "0.3" }}
-      className="absolute right-0 top-0 z-50 grid h-screen w-[400px] bg-white"
+      className="absolute right-0 top-0 z-[60] grid h-screen w-[400px] bg-white"
     >
       <div className="grid h-screen grid-rows-[auto_1fr_auto]">
         <div className="flex w-full items-center justify-between border p-4">

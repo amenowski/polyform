@@ -1,11 +1,10 @@
+import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 
 import { useNavigationContext } from "../contexts/NavigationContext";
-
 import Logo from "./ui/Logo";
 
 export default function MobileNavigation() {
@@ -33,7 +32,7 @@ export default function MobileNavigation() {
       variants={variants}
       animate={isNavigationOpen ? "open" : "closed"}
       transition={{ ease: "easeIn", duration: "0.3" }}
-      className="absolute right-0 top-0 z-50 h-screen w-[400px] bg-white p-4"
+      className="absolute right-0 top-0 z-[60] h-screen w-[400px] bg-white p-4"
     >
       <div className="flex items-center justify-between border-b pb-4">
         <Logo variant="black" />
