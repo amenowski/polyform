@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 
-import { useUser } from "../../hooks/useUser";
 import { getCart, getTotalPrice } from "../../stores/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../ui/Button";
@@ -10,26 +9,6 @@ import EmptyCart from "./EmptyCart";
 function CartTable() {
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalPrice);
-  const { isAuthenticated } = useUser();
-
-  const checkout = async () => {
-    await fetch("https://polyform.vercel.app/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ items: cart }),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        if (response.url) {
-          window.location.assign(response.url);
-        }
-      });
-  };
-
   return (
     <div className="py-16">
       {cart.length === 0 ? (
@@ -55,15 +34,9 @@ function CartTable() {
               <p className="mb-8 text-sm">
                 Taxes and shipping calculated at checkout
               </p>
-              {isAuthenticated ? (
-                <Button onClick={checkout} variant="primary">
-                  CHECKOUT
-                </Button>
-              ) : (
-                <Button to="/login" variant="primary">
-                  Log in First
-                </Button>
-              )}
+              <Button disabled={true} variant="primary">
+                CHECKOUT
+              </Button>
             </div>
           </div>
         </>
