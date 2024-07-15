@@ -9,3 +9,5 @@ dist/* linguist-vendored
 coverage/* linguist-vendored
 public/* linguist-vendored
 *.min.js linguist-vendored
+
+client/ linguist-vendored=false
