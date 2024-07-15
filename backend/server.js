@@ -22,8 +22,8 @@ app.post("/checkout", async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: "payment",
-      success_url: "https://polyform-two.vercel.app/success",
-      cancel_url: "https://polyform-two.vercel.app/cancel",
+      success_url: "https://polyform.vercel.app/success",
+      cancel_url: "https://polyform.vercel.app/cancel",
     });
     res.json({
       url: session.url,

@@ -13,7 +13,7 @@ function CartTable() {
   const { isAuthenticated } = useUser();
 
   const checkout = async () => {
-    await fetch("https://polyform-two.vercel.app/checkout", {
+    await fetch("https://polyform.vercel.app/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
