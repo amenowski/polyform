@@ -1,8 +1,2 @@
-# Specify file types for Linguist
 *.ts linguist-language=TypeScript
 *.tsx linguist-language=TypeScript
-
-# Exclude files from being counted as code
-*.min.js linguist-vendored
-node_modules/* linguist-vendored
-build/* linguist-vendored
