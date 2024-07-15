@@ -1,2 +1,11 @@
+# Force recognition of TypeScript files
 *.ts linguist-language=TypeScript
 *.tsx linguist-language=TypeScript
+
+# Ensure non-source directories are ignored
+node_modules/* linguist-vendored
+build/* linguist-vendored
+dist/* linguist-vendored
+coverage/* linguist-vendored
+public/* linguist-vendored
+*.min.js linguist-vendored
