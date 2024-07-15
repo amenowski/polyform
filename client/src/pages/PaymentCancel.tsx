@@ -5,7 +5,7 @@ export default function PaymentCancel() {
     <div className="flex min-h-[30rem] w-full flex-col items-center justify-center gap-4">
       <h1 className="text-6xl">Payment canceled</h1>
       <Button to="/home" variant="primary">
-        Back Home
+        Back Home :)
       </Button>
     </div>
   );

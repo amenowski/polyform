@@ -57,7 +57,7 @@ function CartTable() {
               </p>
               {isAuthenticated ? (
                 <Button onClick={checkout} variant="primary">
-                  checkout
+                  CHECKOUT
                 </Button>
               ) : (
                 <Button to="/login" variant="primary">

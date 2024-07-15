@@ -50,7 +50,7 @@ export default function App() {
         containerStyle={{ margin: "8px" }}
         toastOptions={{
           success: {
-            duration: 3000,
+            duration: 3200,
           },
           error: {
             duration: 5000,
