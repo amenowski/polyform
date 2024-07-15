@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChangeEvent, forwardRef, useEffect, useState } from "react";
+import { ChangeEvent, forwardRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { useSearchProducts } from "../../hooks/useSearchProducts";

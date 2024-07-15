@@ -5,8 +5,14 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getProducts } from "../services/apiProducts";
 import { PAGE_SIZE } from "../utils/constants";
 
-type Filter = { field: string; value: string } | null;
-type SortBy = { field: string; direction: string };
+type Filter = {
+  field: string;
+  value: string;
+};
+type SortBy = {
+  field: string;
+  direction: string;
+};
 
 export function useProducts() {
   const queryClient = useQueryClient();
@@ -14,10 +20,10 @@ export function useProducts() {
 
   // FILTER
   const filterValue = searchParams.get("isOnSale");
-  const filter: Filter =
-    !filterValue || filterValue === "all"
-      ? null
-      : { field: "isOnSale", value: filterValue };
+  const filter: Filter | null =
+    filterValue && filterValue !== "all"
+      ? { field: "isOnSale", value: String(filterValue) }
+      : null;
 
   // SORTBY
   const sortByRow = searchParams.get("sortBy") || "name-asc";
@@ -30,12 +36,11 @@ export function useProducts() {
   // CATEGORIES
   const categoriesParam = searchParams.get("categories");
   const categoriesValue = categoriesParam ? categoriesParam.split("-") : [];
-  const categories: string[] | null =
-    categoriesValue.length > 0 ? categoriesValue : null;
-  console.log(categories);
+  const categories: string[] =
+    categoriesValue.length > 0 ? categoriesValue : [];
 
   const { data, isLoading } = useQuery({
-    queryKey: ["products", filter, sortBy, page, categories],
+    queryKey: ["products", filter, sortBy, page, categories] as const,
     queryFn: () => getProducts({ filter, sortBy, page, categories }),
   });
 
@@ -54,9 +59,9 @@ export function useProducts() {
 
   if (page > 1)
     queryClient.prefetchQuery({
-      queryKey: ["products", filter, sortBy, page + 1, categories],
+      queryKey: ["products", filter, sortBy, page - 1, categories],
       queryFn: () =>
-        getProducts({ filter, sortBy, page: page + 1, categories }),
+        getProducts({ filter, sortBy, page: page - 1, categories }),
     });
 
   return { products, isLoading, count };

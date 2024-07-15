@@ -2,7 +2,6 @@ import { PAGE_SIZE } from "../utils/constants";
 import supabase from "./supabase";
 
 type SortBy = {
-  value: string;
   direction: string;
   field: string;
 };
@@ -12,12 +11,11 @@ type Filter = {
 };
 
 type getProductsProps = {
-  filter: Filter;
+  filter: Filter | null;
   sortBy: SortBy;
   page: number;
   categories: string[];
 };
-
 export async function getBestProducts() {
   const { data: products, error } = await supabase.from("products").select("*");
 
