@@ -11,6 +11,8 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import PaymentAccept from "./pages/PaymentAccept";
+import PaymentCancel from "./pages/PaymentCancel";
 import Product from "./pages/Product";
 import Shop from "./pages/Shop";
 import Signup from "./pages/Signup";
@@ -36,9 +38,10 @@ export default function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
-            <Route path="checkout" element={<Checkout />} />
             <Route path="product/:name" element={<Product />} />
           </Route>
+          <Route path="cancel" element={<PaymentCancel />} />
+          <Route path="success" element={<PaymentAccept />} />
         </Routes>
       </BrowserRouter>
       <Toaster

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 
+import { useUser } from "../../hooks/useUser";
 import { getCart, getTotalPrice } from "../../stores/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../ui/Button";
@@ -9,6 +10,25 @@ import EmptyCart from "./EmptyCart";
 function CartTable() {
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalPrice);
+  const { isAuthenticated } = useUser();
+
+  const checkout = async () => {
+    await fetch("http://localhost:4000/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ items: cart }),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        if (response.url) {
+          window.location.assign(response.url);
+        }
+      });
+  };
 
   return (
     <div className="py-16">
@@ -35,7 +55,15 @@ function CartTable() {
               <p className="mb-8 text-sm">
                 Taxes and shipping calculated at checkout
               </p>
-              <Button variant="primary">checkout</Button>
+              {isAuthenticated ? (
+                <Button onClick={checkout} variant="primary">
+                  checkout
+                </Button>
+              ) : (
+                <Button to="/login" variant="primary">
+                  Log in First
+                </Button>
+              )}
             </div>
           </div>
         </>

@@ -38,8 +38,6 @@ export default function ProductDetails() {
 
   if (isLoading) return <Loading />;
 
-  console.log(product[0]);
-
   const {
     id,
     name: productName,

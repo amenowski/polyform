@@ -17,12 +17,12 @@ export const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction<ProductT>) => {
       state.cart.push(action.payload);
     },
-    deleteFromCart: (state, action: PayloadAction<number>) => {
+    deleteFromCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter(
         (item: ProductT) => item.id !== action.payload,
       );
     },
-    incQuantity: (state, action: PayloadAction<number>) => {
+    incQuantity: (state, action: PayloadAction<string>) => {
       const item = state.cart.find((item) => item.id === action.payload);
 
       if (item) {
@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
         item.totalPrice = item.quantity * item.price;
       }
     },
-    decQuantity: (state, action: PayloadAction<number>) => {
+    decQuantity: (state, action: PayloadAction<string>) => {
       const item = state.cart.find((item) => item.id === action.payload);
 
       if (item) {
@@ -55,7 +55,7 @@ export const getTotalCartQuantity = (state: { cart: ProductState }): number =>
   state.cart.cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
 export const getCurrentProductQuantity =
-  (id: number) =>
+  (id: string) =>
   (state: { cart: ProductState }): number =>
     state.cart.cart.find((item) => item.id === id)?.quantity ?? 0;
 

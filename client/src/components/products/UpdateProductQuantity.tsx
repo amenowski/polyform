@@ -7,7 +7,7 @@ import {
 } from "../../stores/cartSlice";
 
 type UpdateProductQuantityProps = {
-  id: number;
+  id: string;
 };
 
 function UpdateQuantity({ id }: UpdateProductQuantityProps) {

@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 
 import { deleteFromCart } from "../../stores/cartSlice";
 
-function RemoveProduct({ id }: { id: number }) {
+function RemoveProduct({ id }: { id: string }) {
   const dispach = useDispatch();
 
   function handleRemoveProduct(e: React.MouseEvent<HTMLButtonElement>) {

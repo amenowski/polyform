@@ -6,7 +6,7 @@ import Pagination from "./ui/Pagination";
 
 function Products() {
   const { products, isLoading, count } = useProducts();
-
+  console.log(products);
   if (isLoading) return <Loading />;
 
   if (products?.length === 0)
