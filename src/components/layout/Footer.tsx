@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Logo from "../ui/Logo";
 
 export default function Footer() {
@@ -7,23 +9,35 @@ export default function Footer() {
         <Logo variant="black" />
 
         <ul className="flex flex-col gap-2">
-          <li className="mb-2 text-lg text-black">Help</li>
-          <li>Customer Help/FAQs</li>
-          <li>About Us</li>
-        </ul>
-        <ul className="flex flex-col gap-2">
           <li className="mb-2 text-lg text-black">Categories</li>
-          <li>Sofas</li>
-          <li>Beds</li>
-          <li>Armchair</li>
-          <li>Poufs</li>
+          <li>
+            <Link to="shop?categories=sofas">Sofas</Link>
+          </li>
+          <li>
+            <Link to="shop?categories=beds">Beds</Link>
+          </li>
+          <li>
+            <Link to="shop?categories=armchairs">Armchair</Link>
+          </li>
+          <li>
+            <Link to="shop?categories=poufs">Poufs</Link>
+          </li>
         </ul>
         <ul className="flex flex-col gap-2">
           <li className="mb-2 text-lg text-black">Shop by room</li>
-          <li>Living room</li>
-          <li>Bedroom</li>
-          <li>Dining room</li>
-          <li>Office</li>
+          <li>
+            <Link to="shop?categories=livingroom">Living room</Link>
+          </li>
+          <li>
+            <Link to="shop?categories=bedroom">Bedroom</Link>
+          </li>
+          <li>
+            <Link to="shop?categories=diningroom">Dining room</Link>
+          </li>
+
+          <li>
+            <Link to="shop?categories=office">Office</Link>
+          </li>
         </ul>
       </div>
       <div className="py-8 text-center text-sm">
