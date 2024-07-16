@@ -14,6 +14,10 @@ type SortBy = {
   direction: string;
 };
 
+type Search = {
+  query: string;
+};
+
 export function useProducts() {
   const queryClient = useQueryClient();
   const [searchParams] = useSearchParams();
@@ -30,6 +34,9 @@ export function useProducts() {
   const [field, direction] = sortByRow.split("-");
   const sortBy: SortBy = { field, direction };
 
+  // SEARCH
+  const search = searchParams.get("query") || "";
+
   // PAGINATION
   const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
@@ -40,8 +47,8 @@ export function useProducts() {
     categoriesValue.length > 0 ? categoriesValue : [];
 
   const { data, isLoading } = useQuery({
-    queryKey: ["products", filter, sortBy, page, categories] as const,
-    queryFn: () => getProducts({ filter, sortBy, page, categories }),
+    queryKey: ["products", filter, sortBy, page, categories, search] as const,
+    queryFn: () => getProducts({ filter, sortBy, page, categories, search }),
   });
 
   const products = data?.products;
@@ -52,16 +59,16 @@ export function useProducts() {
 
   if (page < pageCount)
     queryClient.prefetchQuery({
-      queryKey: ["products", filter, sortBy, page + 1, categories],
+      queryKey: ["products", filter, sortBy, page + 1, categories, search],
       queryFn: () =>
-        getProducts({ filter, sortBy, page: page + 1, categories }),
+        getProducts({ filter, sortBy, page: page + 1, categories, search }),
     });
 
   if (page > 1)
     queryClient.prefetchQuery({
-      queryKey: ["products", filter, sortBy, page - 1, categories],
+      queryKey: ["products", filter, sortBy, page - 1, categories, search],
       queryFn: () =>
-        getProducts({ filter, sortBy, page: page - 1, categories }),
+        getProducts({ filter, sortBy, page: page - 1, categories, search }),
     });
 
   return { products, isLoading, count };

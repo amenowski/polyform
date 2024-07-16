@@ -4,7 +4,7 @@ import Button from "../components/ui/Button";
 
 export default function Login() {
   return (
-    <Container className="grid min-h-[600px] divide-x py-20 md:grid-cols-2">
+    <Container className="grid min-h-[600px] gap-8 py-20 md:grid-cols-2 md:divide-x">
       <div className="px-16">
         <h2 className="mb-8 text-3xl font-semibold">Login</h2>
         <LoginForm />

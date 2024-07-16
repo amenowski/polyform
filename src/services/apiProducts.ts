@@ -15,6 +15,7 @@ type getProductsProps = {
   sortBy: SortBy;
   page: number;
   categories: string[];
+  search: string;
 };
 export async function getBestProducts() {
   const { data: products, error } = await supabase.from("products").select("*");
@@ -40,6 +41,7 @@ export async function getProducts({
   sortBy,
   page,
   categories,
+  search,
 }: getProductsProps) {
   let query = supabase.from("products").select("*", { count: "exact" });
 
@@ -66,6 +68,12 @@ export async function getProducts({
 
   if (categories) {
     query = query.contains("category", categories);
+  }
+
+  // Search
+
+  if (search) {
+    query = query.ilike("name", `%${search}%`);
   }
 
   const { data: products, error, count } = await query;

@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode, useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useUser } from "../hooks/useUser";

@@ -5,11 +5,14 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 import { useNavigationContext } from "../contexts/NavigationContext";
+import { useUser } from "../hooks/useUser";
+import Button from "./ui/Button";
 import Logo from "./ui/Logo";
 
 export default function MobileNavigation() {
   const { isNavigationOpen, setIsNavigationOpen } = useNavigationContext();
   const initialRender = useRef(true);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
     if (initialRender.current) {
@@ -47,7 +50,11 @@ export default function MobileNavigation() {
           <Link to="shop">Shop</Link>
         </li>
         <li className="w-full cursor-pointer p-2 transition-all duration-200 hover:bg-hoverBackground hover:text-white">
-          <Link to="login">Login</Link>
+          {isAuthenticated ? (
+            <Link to="account">Account</Link>
+          ) : (
+            <Link to="login">Login</Link>
+          )}
         </li>
       </ul>
     </motion.div>,

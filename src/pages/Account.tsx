@@ -27,7 +27,7 @@ export default function Account() {
         </div>
       </div>
       <div className="flex items-center justify-between py-6">
-        <div className="w-1/2 rounded-lg border p-8">
+        <div className="w-full rounded-lg border p-8 md:w-1/2">
           <h3 className="text-xl">Update user password</h3>
           <UpdatePasswordForm />
         </div>

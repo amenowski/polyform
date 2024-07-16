@@ -1,10 +1,12 @@
 import Categories from "./Categories";
 import Filter from "./Filter";
+import Searchbar from "./Searchbar";
 import SortBy from "./SortBy";
 
 function ShopOperations() {
   return (
     <div className="flex flex-col gap-4">
+      <Searchbar />
       <Filter
         options={[
           { value: "all", label: "All" },

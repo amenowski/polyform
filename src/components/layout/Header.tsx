@@ -15,7 +15,6 @@ import CartPreview from "../cart/CartPreview";
 import MobileNavigation from "../MobileNavigation";
 import Navigation from "../Navigation";
 import Overlay from "../Overlay";
-import SearchPreview from "../search/SearchPreview";
 import Logo from "../ui/Logo";
 import Container from "./Container";
 
@@ -50,16 +49,9 @@ export default function Header() {
 }
 
 function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
-  const [isSearchbarPreviewOpen, setIsSearchbarPreviewOpen] = useState(false);
   const { isNavigationOpen, setIsNavigationOpen } = useNavigationContext();
   const { isCartPreviewOpen, setIsCartPreviewOpen } = useCartPreviewContext();
   const totalPrice = useSelector(getTotalPrice);
-  const ref = useRef<HTMLDivElement>(null);
-  useOnClickOutside(ref, () => setIsSearchbarPreviewOpen(false));
-
-  function handleToggleSearchbarPreview() {
-    setIsSearchbarPreviewOpen((isOpen) => !isOpen);
-  }
 
   function handleOpenNavigation() {
     setIsNavigationOpen(true);
@@ -71,18 +63,6 @@ function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
 
   return (
     <>
-      <CiSearch
-        onClick={handleToggleSearchbarPreview}
-        size={45}
-        className={`cursor-pointer p-2 ${
-          isHomePage
-            ? "text-white hover:bg-white hover:text-black"
-            : "text-black hover:bg-black hover:text-white"
-        }`}
-      />
-      <AnimatePresence>
-        {isSearchbarPreviewOpen && <SearchPreview ref={ref} />}
-      </AnimatePresence>
       <div
         onClick={handleOpenCart}
         className={`flex cursor-pointer items-center gap-1 p-2 ${
@@ -102,9 +82,7 @@ function HeaderIcons({ isHomePage }: { isHomePage: boolean }) {
         size={30}
       />
 
-      {isSearchbarPreviewOpen || isNavigationOpen || isCartPreviewOpen ? (
-        <Overlay />
-      ) : null}
+      {isNavigationOpen || isCartPreviewOpen ? <Overlay /> : null}
     </>
   );
 }
