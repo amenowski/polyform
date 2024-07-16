@@ -14,10 +14,6 @@ type SortBy = {
   direction: string;
 };
 
-type Search = {
-  query: string;
-};
-
 export function useProducts() {
   const queryClient = useQueryClient();
   const [searchParams] = useSearchParams();

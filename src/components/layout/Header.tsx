@@ -1,4 +1,4 @@
-import { CiBag1, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
+import { CiBag1, CiMenuBurger, CiUser } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 

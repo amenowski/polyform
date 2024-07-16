@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import { useNavigationContext } from "../contexts/NavigationContext";
 import { useUser } from "../hooks/useUser";
-import Button from "./ui/Button";
 import Logo from "./ui/Logo";
 
 export default function MobileNavigation() {
