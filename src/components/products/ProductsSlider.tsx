@@ -24,6 +24,7 @@ export default function ProductsSlider({
       spaceBetween={50}
       slidesPerView={3}
       modules={[Navigation]}
+      navigation={true}
       breakpoints={{
         499: {
           slidesPerView: 1,
