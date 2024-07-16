@@ -20,7 +20,6 @@ export default function LoginForm() {
   } = useForm<LoginProps>();
 
   const onSubmit: SubmitHandler<LoginProps> = ({ email, password }) => {
-    console.log("Form submitted with:", email, password);
     setLoginError(null);
     login(
       { email, password },

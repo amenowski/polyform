@@ -6,25 +6,6 @@ import Button from "../ui/Button";
 
 export default function Hero() {
   return (
-    // <motion.div
-    //   className="card"
-    //   initial={{
-    //     opacity: 0,
-    //     // if odd index card,slide from right instead of left
-    //     x: index % 2 === 0 ? 50 : -50
-    //   }}
-    //   whileInView={{
-    //     opacity: 1,
-    //     x: 0, // Slide in to its original position
-    //     transition: {
-    //       duration: 1 // Animation duration
-    //     }
-    //   }}
-    //   viewport={{ once: true }}
-    // >
-    //   <p className="card-text">{text}</p>
-    // </motion.div>
-
     <div className="">
       <div className="h-[50rem]">
         <div className="absolute top-0 -z-[90] h-[60rem] w-full">
@@ -42,7 +23,7 @@ export default function Hero() {
                 opacity: 1,
                 x: 0,
                 transition: {
-                  duration: 1, // Animation duration
+                  duration: 1,
                 },
               }}
               className="flex max-w-[1440px] flex-col items-start justify-center gap-3"

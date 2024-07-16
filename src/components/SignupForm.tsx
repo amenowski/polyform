@@ -26,7 +26,6 @@ export default function SignupForm() {
     email,
     password,
   }) => {
-    console.log("Form submitted with:", email, password);
     setSignUpError(null);
     signup(
       { name, lastName, email, password },

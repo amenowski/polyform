@@ -46,7 +46,7 @@ export async function getProducts({
   let query = supabase.from("products").select("*", { count: "exact" });
 
   // Filter
-  console.log(query);
+
   if (filter) query = query.eq("isOnSale", filter.value);
 
   // Sort
@@ -92,8 +92,6 @@ export async function getSearchProducts(query: string) {
     .textSearch("name", query);
 
   if (error) throw new Error("Something went wrong with fetching product");
-
-  console.log(products);
 
   return products;
 }

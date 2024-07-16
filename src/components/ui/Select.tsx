@@ -5,7 +5,6 @@ type SelectProps = {
 };
 
 function Select({ value, onChange, options }: SelectProps) {
-  console.log(options);
   return (
     <select
       title="select"

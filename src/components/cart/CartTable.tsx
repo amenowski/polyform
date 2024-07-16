@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 
+import { useUser } from "../../hooks/useUser";
 import { getCart, getTotalPrice } from "../../stores/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../ui/Button";
@@ -9,6 +10,9 @@ import EmptyCart from "./EmptyCart";
 function CartTable() {
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalPrice);
+
+  const { isAuthenticated } = useUser();
+
   return (
     <div className="py-16">
       {cart.length === 0 ? (
@@ -34,9 +38,16 @@ function CartTable() {
               <p className="mb-8 text-sm">
                 Taxes and shipping calculated at checkout
               </p>
-              <Button disabled={true} variant="primary">
-                CHECKOUT
-              </Button>
+
+              {isAuthenticated ? (
+                <Button disabled={true} variant="primary">
+                  Checkout
+                </Button>
+              ) : (
+                <Button to="/login" variant="primary">
+                  Login
+                </Button>
+              )}
             </div>
           </div>
         </>

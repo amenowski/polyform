@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { cn } from "../../utils/cn";
 
 type ButtonProps = ComponentPropsWithoutRef<"button"> & {
-  type?: "button" | "submit" | "reset";
   variant?: "primary" | "secondary" | "third";
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
@@ -37,7 +36,6 @@ export default function Button({
   variant,
   to,
   onClick,
-  type,
   className,
 }: ButtonProps) {
   if (to) {
@@ -53,7 +51,6 @@ export default function Button({
 
   return (
     <button
-      type={type}
       onClick={onClick}
       disabled={disabled}
       className={`${disabled ? "cursor-not-allowed" : ""} ${className} ${cn(buttonVariants({ variant }))}`}

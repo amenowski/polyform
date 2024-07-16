@@ -1,5 +1,3 @@
-import { AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
 import { CiBag1, CiMenuBurger, CiSearch, CiUser } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -7,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useCartPreviewContext } from "../../contexts/CartPreviewContext";
 import { useNavigationContext } from "../../contexts/NavigationContext";
 import { useLogout } from "../../hooks/useLogout";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { useUser } from "../../hooks/useUser";
 import { getTotalPrice } from "../../stores/cartSlice";
 import { formatCurrency } from "../../utils/helpers";
