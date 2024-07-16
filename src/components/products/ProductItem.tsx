@@ -12,7 +12,7 @@ export default function ProductItem({ product }: { product: ProductT }) {
         <img className="h-[17rem]" src={images[0]} alt={name} />
         <img
           src={images[1]}
-          className="absolute left-0 top-0 hidden group-hover/product:block"
+          className="absolute left-0 top-0 hidden h-[17rem] group-hover/product:block"
           alt={name}
         />
       </Link>
