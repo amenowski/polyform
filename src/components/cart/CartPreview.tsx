@@ -78,7 +78,7 @@ export default function CartPreview() {
             </Button>
             <Button
               to="checkout"
-              disabled={isCartEmpty}
+              disabled={true}
               className="w-full text-center"
             >
               CHECKOUT
