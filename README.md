@@ -13,6 +13,7 @@ It's a ecommerce page for people who loves modern and vintage furniture.
 - Search
 - Sort
 - Filter
+- Pagination
 
 
 ## Screenshots
