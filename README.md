@@ -10,8 +10,9 @@ It's a ecommerce page for people who loves modern and vintage furniture.
 - Authentication
 - User can add products to cart
 - Mobile view
-- Search feature
-- Sort feature
+- Search
+- Sort
+- Filter
 
 
 ## Screenshots
