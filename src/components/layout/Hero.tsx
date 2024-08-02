@@ -9,9 +9,9 @@ export default function Hero() {
     <div>
       <ImageScaleAnimation
         src={HeroBg}
-        className="min-h-[60rem] w-full object-cover"
+        className="-mt-12 min-h-[40rem] w-full object-cover lg:min-h-[60rem]"
         duration={1}
-        initialScale={2}
+        initialScale={1.4}
         animateScale={1.1}
       />
       <div className="absolute inset-0 mx-auto flex max-w-[1440px] flex-col items-start justify-center gap-4 px-4 text-white">

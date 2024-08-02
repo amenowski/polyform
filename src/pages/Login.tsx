@@ -1,5 +1,5 @@
+import LoginForm from "../components/auth/LoginForm";
 import Container from "../components/layout/Container";
-import LoginForm from "../components/LoginForm";
 import Button from "../components/ui/Button";
 
 export default function Login() {

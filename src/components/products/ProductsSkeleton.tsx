@@ -1,6 +1,6 @@
 export default function ProductsSkeleton() {
   return (
-    <div className="flex min-h-[30rem] w-full gap-8">
+    <div className="flex min-h-[40rem] w-full flex-col gap-4 md:flex-row md:gap-8">
       <ProductSkeleton />
       <ProductSkeleton />
       <ProductSkeleton />

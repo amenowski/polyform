@@ -39,7 +39,7 @@ export default function SignupForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<SignUpFormData>({
     resolver: zodResolver(signupSchema),
   });

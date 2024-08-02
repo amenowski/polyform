@@ -49,7 +49,7 @@ export const StickyScroll = ({
             {content.map((item, index) => (
               <div
                 key={item.title + index}
-                className="relative my-[14rem] flex gap-4"
+                className="relative my-[10rem] flex gap-4 sm:my-[5rem] md:my-[8rem]"
               >
                 <motion.div
                   initial={{
@@ -58,7 +58,7 @@ export const StickyScroll = ({
                   animate={{
                     opacity: activeCard === index ? 1 : 0.3,
                   }}
-                  className="absolute -top-[4.5rem] left-[122px] md:-left-20 md:-top-1"
+                  className="absolute -top-[4.5rem] left-[145px] md:-left-20 md:-top-1"
                 >
                   {item.emote}
                 </motion.div>

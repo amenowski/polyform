@@ -13,7 +13,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   const { name, price, images, description } = product;
 
   return (
-    <div className="grid min-h-[40rem] grid-cols-1 gap-8 py-8 sm:grid-cols-[1fr_0.6fr] lg:py-32">
+    <div className="grid min-h-[40rem] grid-cols-1 gap-8 py-8 sm:grid-cols-[1fr_0.6fr] lg:py-12">
       <div>
         <ProductGallery name={name} images={images} />
       </div>

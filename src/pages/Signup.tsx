@@ -1,5 +1,5 @@
+import SignupForm from "../components/auth/SignupForm";
 import Container from "../components/layout/Container";
-import SignupForm from "../components/SignupForm";
 
 export default function Signup() {
   return (

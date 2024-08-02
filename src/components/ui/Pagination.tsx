@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
 
 import { PAGE_SIZE } from "../../utils/constants";
+import { scrollTop } from "../../utils/helpers";
 import Button from "./Button";
 
 type PaginationProps = {
@@ -31,6 +33,10 @@ function Pagination({ count }: PaginationProps) {
     searchParams.set("page", String(prev));
     setSearchParams(searchParams);
   }
+
+  useEffect(() => {
+    scrollTop();
+  }, [currentPage]);
 
   if (pageCount <= 1) return null;
 

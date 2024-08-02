@@ -1,4 +1,3 @@
-import { useScroll } from "framer-motion";
 import { CiBag1, CiMenuBurger, CiUser } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
