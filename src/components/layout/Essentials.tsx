@@ -14,6 +14,7 @@ export default function Essentials() {
           duration={0.5}
           className="order-1 w-full overflow-hidden lg:order-2"
           src={Essential1}
+          alt="Design Process Image"
         />
         <TextFadeAnimation
           animateY={0}
@@ -46,6 +47,7 @@ export default function Essentials() {
           duration={0.5}
           className="order-2 h-full w-full object-cover"
           src={Essential2}
+          alt="Choosing Carpet Image"
         />
         <TextFadeAnimation
           animateY={0}

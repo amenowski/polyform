@@ -1,7 +1,6 @@
 import { ProductT } from "../../lib/types";
 import { formatCurrency, revertFormattedName } from "../../utils/helpers";
 import Accordion from "../ui/Accordion";
-import Loading from "../ui/Loading";
 import AddToCart from "./AddToCart";
 import ProductGallery from "./ProductGallery";
 

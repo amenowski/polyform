@@ -13,6 +13,7 @@ export default function Hero() {
         duration={1}
         initialScale={1.4}
         animateScale={1.1}
+        alt="Hero image with sofa from our shop"
       />
       <div className="absolute inset-0 mx-auto flex max-w-[1440px] flex-col items-start justify-center gap-4 px-4 text-white">
         <motion.div

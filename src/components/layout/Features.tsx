@@ -11,7 +11,7 @@ export default function Features() {
           <div className="h-96 w-full overflow-hidden">
             <img
               src={Feature3}
-              alt="feature"
+              alt="Personalised designs"
               className="h-full w-full object-cover transition-all duration-300 hover:scale-110"
             />
           </div>
@@ -27,7 +27,7 @@ export default function Features() {
           <div className="h-96 w-full overflow-hidden">
             <img
               src={Feature1}
-              alt="feature"
+              alt="Built to last"
               className="h-full w-full object-cover transition-all duration-300 hover:scale-110"
             />
           </div>
@@ -43,7 +43,7 @@ export default function Features() {
           <div className="h-96 w-full overflow-hidden">
             <img
               src={Feature2}
-              alt="feature"
+              alt="Simple Assembly"
               className="h-full w-full object-cover transition-all duration-300 hover:scale-110"
             />
           </div>
