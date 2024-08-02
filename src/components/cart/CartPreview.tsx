@@ -51,7 +51,7 @@ export default function CartPreview() {
         </div>
         <div className="p-4">
           <div>
-            {cart.length === 0 ? (
+            {isCartEmpty ? (
               <EmptyCart />
             ) : (
               <ul>

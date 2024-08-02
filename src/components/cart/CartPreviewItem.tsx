@@ -8,7 +8,11 @@ import {
 } from "../../utils/helpers";
 import RemoveProduct from "../products/RemoveProduct";
 
-function CartPreviewItem({ product }: { product: ProductT }) {
+type CartPreviewItem = {
+  product: ProductT;
+};
+
+function CartPreviewItem({ product }: CartPreviewItem) {
   const { images, price, name, quantity, id } = product;
 
   return (

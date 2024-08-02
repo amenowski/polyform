@@ -10,12 +10,13 @@ import EmptyCart from "./EmptyCart";
 function CartTable() {
   const cart = useSelector(getCart);
   const totalPrice = useSelector(getTotalPrice);
-
   const { isAuthenticated } = useUser();
+
+  const isCartEmpty = cart.length === 0;
 
   return (
     <div className="py-16">
-      {cart.length === 0 ? (
+      {isCartEmpty ? (
         <EmptyCart />
       ) : (
         <>
