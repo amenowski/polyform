@@ -36,7 +36,7 @@ export default function Essentials() {
             All our products are made with premium, consciously-sourced material
             so rest assured they’ll last you a lifetime.
           </span>
-          <Button to="shop">Find out more</Button>
+          <Button to="/shop">Find out more</Button>
         </TextFadeAnimation>
       </div>
       <div className="grid bg-essentialBackground2 lg:grid-cols-2">
@@ -60,7 +60,7 @@ export default function Essentials() {
             Buying a carpet is not a simple matter. We'll advise you on how you
             can also choose the best carpet just for you.
           </span>
-          <Button to="shop">Find out more</Button>
+          <Button to="/shop">Find out more</Button>
         </TextFadeAnimation>
       </div>
     </div>
