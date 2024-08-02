@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import LogoWhite from "../../assets/images/logo-white.webp";
+
 import LogoBlack from "../../assets/images/logo-black.webp";
+import LogoWhite from "../../assets/images/logo-white.webp";
 
 type LogoProps = {
   variant?: "white" | "black";

@@ -6,19 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { ProductT } from "../../lib/types";
 import Product from "./ProductItem";
-import ProductSkeleton from "./ProductSkeleton";
 
 type ProductsSliderProps = {
   products: ProductT[];
-  isLoading: boolean;
 };
 
-export default function ProductsSlider({
-  products,
-  isLoading,
-}: ProductsSliderProps) {
-  if (isLoading) return <ProductSkeleton />;
-
+export default function ProductsSlider({ products }: ProductsSliderProps) {
   return (
     <Swiper
       spaceBetween={50}
@@ -39,8 +32,7 @@ export default function ProductsSlider({
           spaceBetween: 50,
         },
       }}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      className="py-4"
     >
       {products?.map((product, index) => (
         <SwiperSlide key={index}>

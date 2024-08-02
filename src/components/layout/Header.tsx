@@ -1,3 +1,4 @@
+import { useScroll } from "framer-motion";
 import { CiBag1, CiMenuBurger, CiUser } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -7,6 +8,7 @@ import { useNavigationContext } from "../../contexts/NavigationContext";
 import { useLogout } from "../../hooks/useLogout";
 import { useUser } from "../../hooks/useUser";
 import { getTotalPrice } from "../../stores/cartSlice";
+import { cn } from "../../utils/cn";
 import { formatCurrency } from "../../utils/helpers";
 import CartPreview from "../cart/CartPreview";
 import MobileNavigation from "../MobileNavigation";
@@ -17,12 +19,18 @@ import Container from "./Container";
 
 export default function Header() {
   const isHomePage = useLocation().pathname === "/home";
-
   const { isAuthenticated } = useUser();
 
   return (
     <>
-      <header className="relative z-50 w-full border-b py-4 text-white">
+      <header
+        className={cn(
+          "absolute left-0 right-0 top-0 z-50 w-full border-b bg-transparent py-4 text-white",
+          {
+            "bg-white": !isHomePage,
+          },
+        )}
+      >
         <Container className="flex items-center justify-between">
           <div className="flex items-center gap-12">
             <Logo />

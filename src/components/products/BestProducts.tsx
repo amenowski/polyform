@@ -1,6 +1,7 @@
 import { useBestProducts } from "../../hooks/useBestProducts";
 import Container from "../layout/Container";
 import ProductsSlider from "../products/ProductsSlider";
+import ProductsSkeleton from "./ProductsSkeleton";
 
 export default function BestProducts() {
   const { bestProducts, isLoading } = useBestProducts();
@@ -14,7 +15,8 @@ export default function BestProducts() {
           </h3>
         </div>
         <div className="pt-8">
-          <ProductsSlider products={bestProducts} isLoading={isLoading} />
+          {isLoading && <ProductsSkeleton />}
+          <ProductsSlider products={bestProducts} />
         </div>
       </Container>
     </div>

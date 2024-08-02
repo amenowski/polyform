@@ -1,19 +1,20 @@
-import { useProducts } from "../hooks/useProducts";
-import { ProductT } from "../lib/types";
-import Product from "./products/ProductItem";
-import Loading from "./ui/Loading";
-import Pagination from "./ui/Pagination";
+import { useProducts } from '../../hooks/useProducts';
+import { ProductT } from '../../lib/types';
+import Pagination from '../ui/Pagination';
+import Product from './ProductItem';
+import ProductsSkeleton from './ProductsSkeleton';
 
 function Products() {
   const { products, isLoading, count } = useProducts();
-  if (isLoading) return <Loading />;
+
+  if (isLoading) return <ProductsSkeleton />;
 
   if (products?.length === 0)
     return (
       <div className="flex w-full items-center justify-center">
         No products found in this category.
       </div>
-    );
+  );
 
   return (
     <div className="flex flex-col gap-2">

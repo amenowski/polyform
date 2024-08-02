@@ -1,9 +1,19 @@
-export default function ProductSkeleton() {
+export default function ProductsSkeleton() {
   return (
-    <div role="status" className="max-w-sm animate-pulse rounded py-14">
-      <div className="mb-4 flex h-48 items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
+    <div className="flex min-h-[30rem] w-full gap-8">
+      <ProductSkeleton />
+      <ProductSkeleton />
+      <ProductSkeleton />
+    </div>
+  );
+}
+
+function ProductSkeleton() {
+  return (
+    <div role="status" className="w-full animate-pulse rounded">
+      <div className="mb-4 flex h-[17rem] items-center justify-center rounded bg-gray-200 dark:bg-gray-700">
         <svg
-          className="h-10 w-10 text-gray-200 dark:text-gray-600"
+          className="h-[17rem] w-10 text-gray-300 dark:text-gray-600"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -13,8 +23,8 @@ export default function ProductSkeleton() {
           <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
         </svg>
       </div>
-      <div className="mb-4 h-2.5 w-20 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-      <div className="mb-2.5 h-2 w-14 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+      <div className="mb-4 h-3 w-20 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+      <div className="mb-2.5 h-3 w-14 rounded-full bg-gray-200 dark:bg-gray-700"></div>
 
       <span className="sr-only">Loading...</span>
     </div>

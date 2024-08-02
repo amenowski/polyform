@@ -9,7 +9,7 @@ export default function Account() {
 
   console.log(user);
   return (
-    <Container className="min-h-[40rem] py-6">
+    <Container className="min-h-[40rem] py-20">
       <div className="border-b py-6">
         <div className="flex items-center gap-4">
           <div className="h-16 w-16 rounded-full bg-essentialBackground1"></div>

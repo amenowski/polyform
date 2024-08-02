@@ -36,7 +36,7 @@ export default function Dropdown() {
   ];
 
   return (
-    <div className="absolute -bottom-[260px] left-0 hidden h-72 w-full bg-white text-black group-hover:block group-focus:block">
+    <div className="absolute -bottom-[268px] left-0 hidden h-72 w-full bg-white text-black group-hover:block group-focus:block">
       <div className="mx-auto max-w-[1440px] px-4 py-10">
         <div className="grid w-full grid-cols-4 border-b pb-4">
           {dropdownCategories.map((category, index) => (
