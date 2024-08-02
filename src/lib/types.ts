@@ -10,19 +10,6 @@ export type ProductT = {
   totalPrice?: number;
 };
 
-export type LoginProps = {
-  email: string;
-  password: string;
-};
-
-export type SignupProps = {
-  name: string;
-  email: string;
-  password: string;
-  lastName: string;
-  passwordConfirm?: string;
-};
-
 export type SortByT = {
   options: {
     value: "name-asc" | "name-desc" | "price-asc" | "price-desc";
