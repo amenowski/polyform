@@ -41,7 +41,7 @@ function Categories() {
 
   return (
     <Accordion title="Categories">
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         {CATEGORIESARR.map((category) => (
           <CategoryCheckbox
             key={category}

@@ -1,4 +1,5 @@
 export const PAGE_SIZE = 4;
+
 export type CATEGORY =
   | "sofas"
   | "beds"
